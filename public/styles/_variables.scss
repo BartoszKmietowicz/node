@@ -1,0 +1,18 @@
+$color_1: rgb(25, 151, 182);
+$color_1__hovered: rgb(28, 173, 209);
+
+$color_2: #fff;
+$color_3: rgb(0, 32, 75);
+$background-color_1: rgb(31, 31, 31);
+$background-color_1__hovered: rgb(44, 44, 44);
+
+$background-color_2: rgb(71, 71, 71);
+$background-color_2__hovered: rgb(48, 48, 48);
+
+$main-background: linear-gradient(
+  to bottom,
+  $background-color_1 1%,
+  $background-color_2 100%
+);
+$transition_timing_1: 250ms;
+$transition_timing_2: 125ms;

@@ -1,0 +1,13 @@
+main.product-details {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .product__item {
+    width: 40rem;
+    box-shadow: none;
+    &:hover {
+      translate: 0 0;
+      box-shadow: none;
+    }
+  }
+}
