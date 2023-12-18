@@ -10,4 +10,6 @@ router.get('/add-product', adminController.getAddProduct);
 router.post('/add-product', adminController.postAddProduct);
 router.get('/products', adminController.getProducts);
 router.get('/editProduct/:productId', adminController.getEditProduct);
+router.post('/editProduct', adminController.postEditProduct);
+router.post('/deleteProduct', adminController.postDeleteProduct);
 module.exports = router;
