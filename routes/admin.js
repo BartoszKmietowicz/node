@@ -9,5 +9,5 @@ router.use(express.urlencoded({ extended: true }));
 router.get('/add-product', adminController.getAddProduct);
 router.post('/add-product', adminController.postAddProduct);
 router.get('/products', adminController.getProducts);
-
+router.get('/editProduct/:productId', adminController.getEditProduct);
 module.exports = router;
