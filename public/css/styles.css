@@ -152,7 +152,7 @@ button.btn.add-product:hover {
 .product__item:hover {
   box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.6);
   transition: all 125ms linear;
-  translate: -1% -1%;
+  translate: -0.1% -0.1%;
 }
 
 .product__title {
@@ -189,6 +189,46 @@ main.product-details .product__item:hover {
   box-shadow: none;
 }
 
+.cart__item {
+  background: none;
+  flex-direction: row;
+  justify-content: flex-start;
+  column-gap: 5rem;
+}
+
+.cart__item__list {
+  padding: 0;
+}
+
+.cart__item img {
+  width: 25%;
+}
+
+.cart__item__list {
+  width: 100%;
+}
+
+.cart__item__list .product__item {
+  width: auto;
+}
+
+.cart__item > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 0;
+  width: 25%;
+}
+
+.cart__item .details {
+  flex-grow: 4;
+  flex-direction: column;
+}
+
+.cart__item .details, .cart__item .form {
+  justify-content: flex-end;
+}
+
 body {
   overflow-x: hidden;
   padding: 0;
@@ -206,6 +246,7 @@ body * {
 }
 
 main {
+  width: 100%;
   padding: 1rem 0;
   display: flex;
   justify-content: center;
@@ -218,6 +259,10 @@ main.add-product {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+main.cart .grid {
+  flex-direction: column;
 }
 
 .main-header {
