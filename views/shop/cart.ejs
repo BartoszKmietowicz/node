@@ -27,14 +27,14 @@
                             </div>
                             <div class="card__actions">
        
-                                <form action="/admin/deleteProduct" method="post"> 
-                                    <input type="hidden" name="productId" value="<%= product.id %>">
-                                    <button href="/" class="btn__delete">Delete</button></form>
+                                <form action="/cartDeleteItem" method="POST"> 
+                                    <input type="hidden" name="productId" value="<%= p.productData.id %>">
+                                    <button type="submit" class="btn__delete">Delete</button></form>
 
 
                             </div>
                         </article>
-                        <% console.log(p.qty)}) %>
+                        <% console.log(p.productData.id)}) %>
                 </div>
                 <% } else { %>
                     <h1>no products found</h1>
