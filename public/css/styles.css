@@ -223,10 +223,11 @@ main.product-details .product__item:hover {
 .cart__item .details {
   flex-grow: 4;
   flex-direction: column;
+  justify-content: flex-end;
 }
 
-.cart__item .details, .cart__item .form {
-  justify-content: flex-end;
+.cart__item .form {
+  justify-content: center;
 }
 
 body {

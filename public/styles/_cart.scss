@@ -26,9 +26,10 @@
 		.details{
 			flex-grow:4;
 			flex-direction: column;
-		}
-		.details,.form{
 			justify-content: flex-end;
+		}
+		.form{
+			justify-content: center;
 		}
 	}
 }
