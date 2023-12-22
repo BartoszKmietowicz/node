@@ -68,7 +68,7 @@ exports.postEditProduct = (req, res) => {
   );
   product
     .save()
-    .then((result) => {
+    .then(() => {
       console.log('Updated Product');
       res.redirect('/admin/products');
     })
@@ -88,7 +88,7 @@ exports.getProducts = (req, res) => {
 exports.postDeleteProduct = (req, res) => {
   const prodId = req.body.productId;
   Product.deleteById(prodId)
-    .then((result) => {
+    .then(() => {
       console.log('deleted product');
       res.redirect('/admin/products');
     })

@@ -16,7 +16,7 @@ a {
   background: $background-color_1;
   transition: background 250ms ease;
   &:hover {
-    transition: background 250ms ease;
+    transition: background,color 250ms ease;
     background: $background-color_1__hovered;
     cursor: pointer;
   }
@@ -119,7 +119,7 @@ button.btn {
     align-items: center;
     width: 20rem;
     max-height: fit-content;
-    background: $main-background;
+    background: $background-color_2;
     color: $color_2;
     border-radius: 15px;
     padding: 1rem;
