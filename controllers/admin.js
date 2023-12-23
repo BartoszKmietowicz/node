@@ -13,18 +13,16 @@ exports.postAddProduct = (req, res, next) => {
   let imageUrl = req.body.imageUrl;
   const price = req.body.price;
   const description = req.body.description;
-  const product = new Product(
-    title,
-    price,
-    (imageUrl =
+  const product = new Product({
+    title: title,
+    price: price,
+    imageUrl:
       imageUrl ||
       `https://picsum.photos/seed/${encodeURIComponent(
         title.toLowerCase().trim()
-      )}/400/600`),
-    description,
-    null,
-    req.user._id
-  );
+      )}/400/600`,
+    description: description,
+  });
   product
     .save()
     .then(() => {
@@ -44,7 +42,6 @@ exports.getEditProduct = (req, res) => {
     if (!product) {
       return res.redirect('/');
     }
-
     res.render('admin/editProduct', {
       docTitle: 'edit product',
       path: '/admin/edit-products',
@@ -75,7 +72,7 @@ exports.postEditProduct = (req, res) => {
     .catch((err) => console.log(err));
 };
 exports.getProducts = (req, res) => {
-  Product.fetchAll()
+  Product.find()
     .then((products) => {
       res.render('admin/products', {
         docTitle: 'products list',
