@@ -4,6 +4,7 @@ const express = require('express');
 const app = express();
 
 const mongoConnect = require('./util/database').mongoConnect;
+const mongoose = require('mongoose');
 
 const errorController = require('./controllers/error');
 
@@ -29,8 +30,16 @@ app.use((req, res, next) => {
 app.use('/admin', adminRoutes);
 app.use(shopData.routes);
 app.use(errorController.get404);
-mongoConnect(() => {
-  app.listen(3000);
-});
+
+mongoose
+  .connect(
+    'mongodb+srv://Bartosz:Bartimos1@cluster0.ktuikdn.mongodb.net/?retryWrites=true&w=majority'
+  )
+  .then((result) => {
+    app.listen(3000);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
 
