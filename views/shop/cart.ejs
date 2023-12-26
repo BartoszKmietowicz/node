@@ -8,15 +8,15 @@
                     <% prods.forEach(p=>{ %>
                         <li class="cart__item product__item">
                             <div class="img">
-                                <img src="<%=p.imageUrl%>" alt="">
+                                <img src="<%=p.productId.imageUrl%>" alt="">
                             </div>
                             <div class="details">
-                                    <h2><%= p.title%></h2>
+                                    <h2><%= p.productId.title%></h2>
                                     <h3>Quantity: <%=p.quantity%></h3>
                             </div>
                             <div class="form">
                                 <form action="/cartDeleteItem" method="POST">
-                                    <input type="hidden" name="productId" value="<%=p._id%>">
+                                    <input type="hidden" name="productId" value="<%=p.productId._id%>">
                                     <button class="btn__delete" type="submit">Delete</button>
                                 </form>
                             </div>

@@ -104,7 +104,7 @@ button.btn {
     input,
     textarea {
       all: unset;
-      background-color: rgba($background-color_2, 0.3);
+      background-color: $background-color_2;
       padding: 0.5rem;
       border-radius: 10px;
     }
@@ -124,12 +124,12 @@ button.btn {
     border-radius: 15px;
     padding: 1rem;
     position: relative;
-    transition: all $transition_timing_2 linear;
+    transition: box-shadow,translate $transition_timing_2 linear;
 
     &:hover {
-      box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.6);
-      transition: all $transition_timing_2 linear;
-      translate: -0.1% -0.1%;
+      box-shadow: 2px 8px 8px rgba(0,0,0, 1);
+      transition: box-shadow,translate $transition_timing_2 linear;
+      translate: -0.5% -0.5%;
     }
   }
   &__title {

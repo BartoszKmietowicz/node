@@ -22,6 +22,7 @@ exports.postAddProduct = (req, res, next) => {
         title.toLowerCase().trim()
       )}/400/600`,
     description: description,
+    userId: req.user,
   });
   product
     .save()
@@ -55,16 +56,15 @@ exports.postEditProduct = (req, res) => {
     updatedTitle = req.body.title,
     updatedPrice = req.body.price,
     updatedDesc = req.body.description,
-    updatedUrl = req.body.image;
-  const product = new Product(
-    updatedTitle,
-    updatedPrice,
-    updatedUrl,
-    updatedDesc,
-    new ObjectId(prodId)
-  );
-  product
-    .save()
+    updatedUrl = req.body.imageUrl;
+  Product.findById(prodId)
+    .then((product) => {
+      product.title = updatedTitle;
+      product.imageUrl = updatedUrl;
+      product.price = updatedPrice;
+      product.description = updatedDesc;
+      return product.save();
+    })
     .then(() => {
       console.log('Updated Product');
       res.redirect('/admin/products');
@@ -73,6 +73,8 @@ exports.postEditProduct = (req, res) => {
 };
 exports.getProducts = (req, res) => {
   Product.find()
+    // .select('title price -_id')
+    // .populate('userId', 'name')
     .then((products) => {
       res.render('admin/products', {
         docTitle: 'products list',
@@ -84,7 +86,7 @@ exports.getProducts = (req, res) => {
 };
 exports.postDeleteProduct = (req, res) => {
   const prodId = req.body.productId;
-  Product.deleteById(prodId)
+  Product.findByIdAndDelete(prodId)
     .then(() => {
       console.log('deleted product');
       res.redirect('/admin/products');
