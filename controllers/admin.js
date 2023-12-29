@@ -22,7 +22,7 @@ exports.postAddProduct = (req, res, next) => {
         title.toLowerCase().trim()
       )}/400/600`,
     description: description,
-    userId: req.user,
+    userId: req.session.user,
   });
   product
     .save()
@@ -73,8 +73,6 @@ exports.postEditProduct = (req, res) => {
 };
 exports.getProducts = (req, res) => {
   Product.find()
-    // .select('title price -_id')
-    // .populate('userId', 'name')
     .then((products) => {
       res.render('admin/products', {
         docTitle: 'products list',

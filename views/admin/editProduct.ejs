@@ -5,6 +5,7 @@
         <%- include('../includes/navigation.ejs') %>
             <main class="add-product">
                 <form class="product-form__item" action="/admin/<% if(editing) {%>editProduct<%}else{ %>add-product<%}%>" method="POST">
+                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
                     <div class="product-form__control">
                         <label for="title">Title</label>
                         <input type="text" name="title" id="title" value="<% if(editing) {%><%=product.title%><%} %>" />

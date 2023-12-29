@@ -196,6 +196,10 @@ main.product-details .product__item:hover {
   column-gap: 5rem;
 }
 
+.cart__item:hover {
+  translate: 0;
+}
+
 .cart__item__list {
   padding: 0;
 }
@@ -228,6 +232,45 @@ main.product-details .product__item:hover {
 
 .cart__item .form {
   justify-content: center;
+}
+
+.login-form {
+  width: 20rem;
+  max-width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 1rem;
+}
+
+.login-form__control {
+  row-gap: 0.5rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form__control input, .login-form__control button {
+  all: unset;
+  padding: 0.5rem;
+  border-radius: 10px;
+  background-color: #012947;
+}
+
+.login-form .login {
+  padding: 1rem 3rem;
+  background-color: #012947;
+}
+
+.login-form .login:hover {
+  background-color: rgba(1, 41, 71, 0.9);
+}
+
+.user-message__error {
+  color: tomato;
 }
 
 body {
@@ -276,34 +319,35 @@ main.cart .grid {
   height: 100%;
   display: none;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .main-header__item-list {
   list-style: none;
   margin: 0;
   display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .main-header__item {
   margin: 0 1rem;
   padding: 0;
-  font-weight: thin;
 }
 
-.main-header__item a {
+.main-header__item a, .main-header__item button {
   text-decoration: none;
   background: #01002c;
   color: #fff;
   transition: color 250ms linear;
 }
 
-.main-header__item a:hover, .main-header__item a:active, .main-header__item a.active {
+.main-header__item a:hover, .main-header__item a:active, .main-header__item a.active, .main-header__item button:hover, .main-header__item button:active, .main-header__item button.active {
   color: #fff;
   background: #012947;
 }
 
-.main-header__item a:hover {
+.main-header__item a:hover, .main-header__item button:hover {
   transition: color, background 250ms linear;
 }
 
