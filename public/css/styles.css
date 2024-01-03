@@ -234,6 +234,10 @@ main.product-details .product__item:hover {
   justify-content: center;
 }
 
+.login {
+  row-gap: 2rem;
+}
+
 .login-form {
   width: 20rem;
   max-width: 90%;
@@ -260,12 +264,12 @@ main.product-details .product__item:hover {
   background-color: #012947;
 }
 
-.login-form .login {
+.login button.login, .login a {
   padding: 1rem 3rem;
   background-color: #012947;
 }
 
-.login-form .login:hover {
+.login button.login:hover, .login a:hover {
   background-color: rgba(1, 41, 71, 0.9);
 }
 

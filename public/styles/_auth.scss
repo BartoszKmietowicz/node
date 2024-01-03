@@ -1,4 +1,5 @@
 .login{
+  row-gap:2rem;
 	&-form{
 		width:20rem;
 		max-width: 90%;
@@ -21,14 +22,15 @@
       border-radius: 10px;
 			background-color: $background-color_2__hovered;
 		}}
-    .login{
-      padding: 1rem 3rem;
-      background-color: $background-color_2__hovered;
-      &:hover{
-        background-color: rgba($background-color_2__hovered,0.9);
-      }
-    }
+    
 	}
+  button.login,a{
+        padding: 1rem 3rem;
+        background-color: $background-color_2__hovered;
+        &:hover{
+          background-color: rgba($background-color_2__hovered,0.9);
+        }
+      }
 }
 .user-message{
   &__error{

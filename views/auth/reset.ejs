@@ -7,21 +7,13 @@
                 <% if(errorMessage){ %>
                 <div class="user-message user-message__error"><%=errorMessage %></div>
                 <% }%>
-                <form class="login-form" action="/login" method="POST">
-                    
+                <form class="login-form" action="/reset" method="POST">
                     <div class="login-form__control">
                         <label for="email">E-mail</label>
                         <input type="email" name="email" id="email" />
                     </div>
-                  
-                    <div class="login-form__control">
-                        <label for="password">password</label>
-                        <input type="password" name="password" id="password" >
-                    </div>
                  <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-
-                    <button class="btn login" type="submit">Login</button>
+                    <button class="btn login" type="submit">Reset Password</button>
                 </form>
-                <a href="/reset">Reset Password</a>
             </main>
             <%- include('../includes/end.ejs') %>
