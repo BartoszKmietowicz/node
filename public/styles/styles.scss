@@ -156,7 +156,14 @@ main.cart {
         }
     }
 }
-
+input.invalid,textarea.invalid{
+    box-sizing: border-box;
+  background-color:tomato;
+  &:focus-within{
+    border:none;
+    background-color: $background-color_2__hovered;
+  }
+}
 @media (min-width: 768px) {
     .main-header__nav {
         display: flex;

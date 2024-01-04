@@ -437,6 +437,16 @@ main.cart .grid {
   color: #00204b;
 }
 
+input.invalid, textarea.invalid {
+  box-sizing: border-box;
+  background-color: tomato;
+}
+
+input.invalid:focus-within, textarea.invalid:focus-within {
+  border: none;
+  background-color: #012947;
+}
+
 @media (min-width: 768px) {
   .main-header__nav {
     display: flex;
