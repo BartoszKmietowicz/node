@@ -234,6 +234,13 @@ main.product-details .product__item:hover {
   justify-content: center;
 }
 
+.orderList {
+  display: flex;
+  justify-content: space-evenly;
+  row-gap: 2rem;
+  flex-direction: column;
+}
+
 .login {
   row-gap: 2rem;
 }

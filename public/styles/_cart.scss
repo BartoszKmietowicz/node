@@ -36,3 +36,9 @@
 		}
 	}
 }
+.orderList{
+	display:flex;
+	justify-content: space-evenly;
+	row-gap:2rem;
+	flex-direction: column;
+}

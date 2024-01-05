@@ -35,7 +35,6 @@ router.post(
     .trim()
     .isAlphanumeric()
     .isLength({ min: 3 }),
-  check('imageUrl', 'enter a valid URL').trim().isURL(),
   check('price', 'invalid price').isFloat(),
   check(
     'description',
