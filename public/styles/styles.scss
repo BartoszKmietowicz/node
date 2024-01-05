@@ -118,11 +118,7 @@ main.cart {
             font-size: 1.5rem;
             padding: 0.5rem 2rem;
             border-radius: 5px;
-            &:hover,
-            &:active,
-            &.active {
-                background-color: $color_1;
-            }
+            
         }
         &.active {
             background: #00695c;
@@ -155,6 +151,13 @@ main.cart {
             color: $color_3;
         }
     }
+}
+a{
+&:hover,
+&:active,
+&.active {
+ background-color: $color_1;
+}
 }
 input.invalid,textarea.invalid{
     box-sizing: border-box;

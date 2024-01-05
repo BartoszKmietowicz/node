@@ -404,10 +404,6 @@ main.cart .grid {
   border-radius: 5px;
 }
 
-.mobile-nav__item a:hover, .mobile-nav__item a:active, .mobile-nav__item a.active {
-  background-color: #1997b6;
-}
-
 .mobile-nav__item.active {
   background: #00695c;
   color: #fff;
@@ -442,6 +438,10 @@ main.cart .grid {
 
 .mobile-nav#side-menu-toggle:hover {
   color: #00204b;
+}
+
+a:hover, a:active, a.active {
+  background-color: #1997b6;
 }
 
 input.invalid, textarea.invalid {
