@@ -19,7 +19,7 @@ const shopRoutes = require('./routes/shop');
 const User = require('./models/user');
 
 const MONGODB_URI =
-  'mongodb+srv://Bartosz:Bartimos1@cluster0.ktuikdn.mongodb.net/shop';
+  'mongodb+srv://Bartosz:<password>@cluster0.ktuikdn.mongodb.net/shop';
 const app = express();
 const store = new MongoDBStore({
   uri: MONGODB_URI,
@@ -93,6 +93,7 @@ app.get('/500', errorController.get500);
 app.use(errorController.get404);
 
 app.use((error, req, res, next) => {
+  console.log(error);
   res.status(500).render('500', {
     path: '/500',
     docTitle: 'Page Not Found',

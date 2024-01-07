@@ -1,9 +1,45 @@
 <%- include('../includes/head.ejs') %>
 </head>
-
 <body>
-    <%- include('../includes/navigation.ejs') %>
-    <h1>checkout</h1>
-
-<%- include('../includes/end.ejs') %>
+<%- include('../includes/navigation.ejs') %>
+        <main>
+           <div class="grid">
+    <% products.forEach((product,index)=> { %>
+    <article class="card product__item">
+      <h1 class="product__title"><%= product.productId.title %> </h1>
+      
+      <div class="card__content">
+        <h2 class="product__price">$ <%=product.productId.price%> x <%=product.quantity %></h2>
+        <p class="product__description">
+          <%= product.description %>
+        </p>
+        
+      </div>
+        
+      </div>
+    </article>
+    <% }) %>
+  </div>
+  <div>
+    Total: $ <%=totalSum %>
+  </div>
   
+  
+  <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+  <div>
+
+    <button id="order-btn" class="btn">ORDER</button>
+                <script src="https://js.stripe.com/v3/"></script>
+                <script>
+                    var stripe = Stripe('secret key');
+                    var orderBtn = document.getElementById('order-btn');
+                    orderBtn.addEventListener('click', function() {
+                        stripe.redirectToCheckout({
+                            sessionId: '<%= sessionId %>'
+                        });
+                    });
+                </script>
+  </div>
+    </div>
+    </main>
+<%- include('../includes/end.ejs') %>

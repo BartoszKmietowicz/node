@@ -14,8 +14,8 @@ router.post(
   '/add-product',
 
   check('title', 'title must have at least 3 characters')
-    .trim()
     .isAlphanumeric()
+    .trim()
     .isLength({ min: 3 }),
   check('price', 'invalid price').isFloat(),
   check(
@@ -46,5 +46,5 @@ router.post(
   isAuth,
   adminController.postEditProduct
 );
-router.delete('/deleteProduct', isAuth, adminController.postDeleteProduct);
+router.delete('/product/:productId', isAuth, adminController.deleteProduct);
 module.exports = router;

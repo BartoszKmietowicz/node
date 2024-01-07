@@ -47,10 +47,9 @@ exports.getAddProduct = (req, res) => {
     validationErrors: [],
   });
 };
-
 //POST
-exports.postDeleteProduct = (req, res) => {
-  const prodId = req.body.productId;
+exports.deleteProduct = (req, res) => {
+  const prodId = req.params.productId;
   Product.findById(prodId)
     .then((product) => {
       if (!product) {
@@ -60,13 +59,12 @@ exports.postDeleteProduct = (req, res) => {
       return Product.deleteOne({ _id: prodId, userId: req.user._id });
     })
     .then(() => {
-      console.log('deleted product');
-      res.redirect('/admin/products');
+      res.status(200).json({
+        message: 'success',
+      });
     })
     .catch((err) => {
-      const error = new Error(err);
-      error.httpStatusCode = 500;
-      return next(error);
+      res.status(500).json({ message: 'failed' });
     });
 };
 exports.postEditProduct = (req, res) => {

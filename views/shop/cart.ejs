@@ -1,6 +1,7 @@
 <%- include('../includes/head.ejs') %>
 <%- include('../includes/navigation.ejs') %>
-        </head>
+<body>
+     </head>
         <main class="cart">
             <h1>My cart</h1>
             <% if(prods.length>0){ %>
@@ -25,10 +26,11 @@
                        <% }) %>
                 </ul>
 
-                <form action="/createOrder" method="post">
+                <!-- <form action="/createOrder" method="post">
                     <input type="hidden" name="_csrf" value="<%= csrfToken %>">
                     <button type="submit" class="btn">Order Now</button>
-                </form>
+                </form> -->
+                <a href="/checkout">Order now!</a>
                 <% } else { %>
                     <h1>no products found</h1>
                   <%}%>
