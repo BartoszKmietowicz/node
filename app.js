@@ -19,7 +19,7 @@ const shopRoutes = require('./routes/shop');
 const User = require('./models/user');
 
 const MONGODB_URI =
-  'mongodb+srv://Bartosz:<password>@cluster0.ktuikdn.mongodb.net/shop';
+  'mongodb+srv://Bartosz:Bartimos1@cluster0.ktuikdn.mongodb.net/shop';
 const app = express();
 const store = new MongoDBStore({
   uri: MONGODB_URI,
@@ -64,6 +64,7 @@ app.use(csrfProtection);
 app.use(flash());
 
 app.use((req, res, next) => {
+
   res.locals.isAuthenticated = req.session.isLoggedIn;
   res.locals.csrfToken = req.csrfToken();
   next();

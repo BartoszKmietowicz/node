@@ -112,7 +112,8 @@ exports.postEditProduct = (req, res) => {
     .catch((err) => {
       const error = new Error(err);
       error.httpStatusCode = 500;
-      return next(error);
+      console.log(error);
+      return error;
     });
 };
 exports.postAddProduct = (req, res, next) => {

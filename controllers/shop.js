@@ -5,7 +5,8 @@ const PDFDocument = require('pdfkit');
 
 const Product = require('../models/product');
 const Order = require('../models/order');
-const sk = 'secret key';
+const sk =
+  'sk_test_51OV6hcH6jyk2uVdvETyZ2VvWX6VzVdVtldfQf16sdcDgjm58RTIBFSapfrPxmeopNvr9nIrKZXsPnq6ZRjS8N2Ot00sPjuhvpW';
 const stripe = require('stripe')(sk);
 const ITEMS_PER_PAGE = 5;
 
@@ -117,16 +118,15 @@ exports.getCheckout = (req, res, next) => {
             quantity: p.quantity,
           };
         }),
-        success_url:
-          req.protocol + '://' + req.get('host') + '/checkout/success', // => http://localhost:3000
-        cancel_url: req.protocol + '://' + req.get('host') + '/checkout/cancel',
+        success_url: `${req.protocol}://${req.get('host')}/checkout/success`,
+        cancel_url: `${req.protocol}://${req.get('host')}/checkout/cancel`,
       });
     })
     .then((session) => {
       res.render('shop/checkout', {
         docTitle: 'Checkout',
         path: '/checkout',
-        products: products,
+        products,
         totalSum: total.toFixed(2),
         sessionId: session.id,
         sk,
@@ -151,7 +151,7 @@ exports.getCheckoutSuccess = (req, res, next) => {
           email: req.user.email,
           userId: req.user,
         },
-        products: products,
+        products,
       });
       return order.save();
     })
@@ -189,7 +189,7 @@ exports.getInvoice = (req, res, next) => {
       if (order.user.userId.toString() !== req.user._id.toString()) {
         return next(new Error('Unauthorized'));
       }
-      const invoiceName = 'invoice-' + orderId + '.pdf';
+      const invoiceName = `invoice-${orderId}.pdf`;
       const invoicePath = path.join('data', 'invoices', invoiceName);
       const pdfDoc = new PDFDocument();
       res.setHeader('Content-Disposition', `inline; filename=${invoiceName}`);
